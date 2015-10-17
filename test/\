@@ -1,0 +1,35 @@
+import test from 'tape'
+import makeRouter from '../src'
+/**
+import { Rx } from '@cycle/core'
+
+const { onNext } = Rx.ReactiveTest
+
+function compareMessages (t, actual, expected) {
+  t.equal(actual.length, expected.length, 'messages should be same length')
+  expected.forEach((message, i) => {
+    t.ok(
+      Rx.internals.isEqual(actual[i], message),
+      'message should be equal'
+    )
+  })
+}
+*/
+
+test('makeRouter should return a function', t => {
+  const router = makeRouter({})
+  t.equal(typeof router, 'function')
+  t.end()
+})
+
+test('route should create route objects from paths', t => {
+  const routes = {
+    '/': 'owers',
+    '/owers/:ower': 'owees',
+    '/transactions/:ower/:owee': 'transactions',
+    '/:notfound(.*)': 'notfound'
+  }
+  const router = makeRouter(routes)
+  t.deepEqual(router('/'), { label: 'owers', params: {} })
+  t.end()
+})
