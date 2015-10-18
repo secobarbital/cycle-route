@@ -1,6 +1,6 @@
 {
   "name": "cycle-route",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Cycle.js helper for routing",
   "main": "lib/index.js",
   "directories": {
