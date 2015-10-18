@@ -12,7 +12,7 @@ npm install cycle-route
 
 ## API
 
-###```makeRouter(routes)```
+### ```makeRouter(routes)```
 
 Takes as input a map from route definition to route name and returns a router function. ```cycle-route``` uses [```routington```](https://github.com/pillarjs/routington) so it accepts all route definitions that ```routington``` accepts and adds a ```*``` route to define the default route.
 
