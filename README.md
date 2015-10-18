@@ -31,7 +31,7 @@ Takes as input a map from route definition to route name and returns a router fu
 Basics:
 
 ```js
-import makeRouter from 'cycle-route'
+import { makeRouter } from 'cycle-route'
 
 const router = makeRouter({
   '/': 'home',
@@ -46,7 +46,7 @@ router('/')
 
 ```js
 import { makePushStateDriver } from 'cycle-pushstate-driver'
-import makeRouter from 'cycle-route'
+import { makeRouter } from 'cycle-route'
 import routes from 'routes'
 
 const router = makeRouter(routes)

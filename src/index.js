@@ -1,6 +1,6 @@
 import routington from 'routington'
 
-export default function makeRouter (routes) {
+export function makeRouter (routes) {
   const router = routington()
   let defaultRoute
   Object.keys(routes).forEach(route => {
