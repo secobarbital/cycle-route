@@ -1,14 +1,6 @@
 # Cycle Route
 
-A simple router factory that takes a static map of route => label and returns a function that maps a path to a route object of the form
-
-```js
-{
-  path: '/',
-  name: 'home',
-  params: {}
-}
-```
+A simple router factory that takes a static map of route => label and returns a function that maps a path to a route object.
 
 It was created to be used with [```cycle-pushstate-driver```](https://github.com/secobarbital/cycle-pushstate-driver) but is a generic URL mapper that can be as a helper in any routing engine.
 
@@ -16,6 +8,22 @@ It was created to be used with [```cycle-pushstate-driver```](https://github.com
 
 ```sh
 npm install cycle-route
+```
+
+## API
+
+###```makeRouter(routes)```
+
+Takes as input a map from route definition to route name and returns a router function. ```cycle-route``` uses [```routington```](https://github.com/pillarjs/routington) so it accepts all route definitions that ```routington``` accepts and adds a ```*``` route to define the default route.
+
+## Format of route object
+
+```js
+{
+  path: '/',         // this is the input path
+  name: 'home',      // this is the value from the routes map
+  params: {}         // this are the matched params
+}
 ```
 
 ## Usage
