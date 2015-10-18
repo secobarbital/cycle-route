@@ -15,7 +15,7 @@ It was created to be used with [```cycle-pushstate-driver```](https://github.com
 ## Install
 
 ```sh
-npm install @cycle-route
+npm install cycle-route
 ```
 
 ## Usage
@@ -23,23 +23,23 @@ npm install @cycle-route
 Basics:
 
 ```js
-import makeRouter from ‘cycle-route’
+import makeRouter from 'cycle-route'
 
 const router = makeRouter({
-  ‘/’: ‘home’,
-  ‘/foo/:bar’: ‘foo’,
-  ‘*’: ‘notfound’          // default route
+  '/': 'home',
+  '/foo/:bar': 'foo',
+  '*': 'notfound'          // default route
 })
 
-router(‘/’)
+router('/')
 ```
 
 [Cycle.js](http://cycle.js.org/) use case:
 
 ```js
-import { makePushStateDriver } from ‘cycle-pushstate-driver’
-import makeRouter from ‘cycle-route’
-import routes from ‘routes’
+import { makePushStateDriver } from 'cycle-pushstate-driver'
+import makeRouter from 'cycle-route'
+import routes from 'routes'
 
 const router = makeRouter(routes)
 
@@ -54,16 +54,16 @@ function main({ DOM, Path }) {
   const localLinkClick$ = DOM.select('a').events('click')
     .filter(e => e.currentTarget.host === global.location.host)
 
-  const navigate$ = DOM.select(‘a’).events(‘click’)
+  const navigate$ = DOM.select('a').events('click')
     .map(e => e.currentTarget.pathname)
 
   const vtree$ = Rx.Observable.combineLatest(
     Route, homeRequests.DOM, fooRequests.DOM, barRequests.DOM,
     (route, homePage, fooPage, barPage) => {
       const pages = {
-        ‘home’: homePage,
-        ‘foo’: fooPage,
-        ‘bar’: barPage
+        'home': homePage,
+        'foo': fooPage,
+        'bar': barPage
       }
       return pages[route.name]
     }
